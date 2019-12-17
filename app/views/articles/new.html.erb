@@ -1,5 +1,7 @@
 <h1>New Article</h1>
 
+<%= render "shared/errors", obj: @article %>
+
 <%= form_for @article do |t| %>
   <%= t.label :title %><br />
   <%= t.text_field :title %>

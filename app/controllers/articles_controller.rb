@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article is created successfully"
       redirect_to article_path(@article)
     else
-      flash.now[:notice] = "Article is failed to be saved try again!"
+      # flash.now[:notice] = "Article is failed to be saved try again!"
       render "new"
     end
   end
