@@ -1,15 +1,3 @@
 <h1>New Article</h1>
 
-<%= render "shared/errors", obj: @article %>
-
-<%= form_for @article do |t| %>
-  <%= t.label :title %><br />
-  <%= t.text_field :title %>
-  <br /><br />
-  <%= t.label :description %><br />
-  <%= t.text_area :description %>
-  <br /><br />
-  <%= t.submit %>
-  <br /><br />
-[ <%= link_to "Back to Listing Articles", articles_path %> ]
-<% end %>
+<%= render "form" %>
