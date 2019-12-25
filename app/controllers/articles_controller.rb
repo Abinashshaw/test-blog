@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "admin", password: "krsna", except: [:index, :show]
 
   def index
     @articles = Article.all
@@ -16,7 +17,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article is created successfully"
+      flash[:success] = "Article is created successfully"
       redirect_to article_path(@article)
     else
       # flash.now[:notice] = "Article is failed to be saved try again!"
@@ -30,7 +31,7 @@ class ArticlesController < ApplicationController
 
   def update 
     if @article.update(article_params)
-      flash[:notice] = "Article is successfully updated"
+      flash[:success] = "Article is successfully updated"
       redirect_to article_path(@article)
     else
       render "edit"
@@ -39,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:notice] = "Article is successfully destroyed"
+    flash[:danger] = "Article is successfully destroyed"
     redirect_to articles_path
   end
 

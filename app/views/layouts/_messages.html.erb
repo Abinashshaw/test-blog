@@ -1,5 +1,5 @@
 <% flash.each do |name, msg| %>
-<ul>
-  <li><%= msg %></li>
+<ul class="list-group">
+  <li><%= content_tag(:div, msg, class: "list-group-item-#{ name }") %></li>
 </ul>
 <% end %>
